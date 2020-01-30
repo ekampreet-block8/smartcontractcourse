@@ -4,6 +4,17 @@ contract Contract1 {
     uint256 public peopleCount;
     mapping(uint256 => Person) public people;
 
+    address owner;
+
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+
+    constructor() public {
+        owner = msg.sender;
+    }
+
     struct Person {
         uint256 _id;
         string _firstName;
@@ -12,6 +23,7 @@ contract Contract1 {
 
     function addPerson(string memory _firstName, string memory _lastName)
         public
+        onlyOwner
     {
         incrementCount();
         people[peopleCount] = Person(peopleCount, _firstName, _lastName);
