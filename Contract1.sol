@@ -1,17 +1,17 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.1;
 
-contract Contract1{
+contract Contract1 {
     string value;
-    
-    constructor() public{
-        value="Hello World";
+
+    constructor() public {
+        value = "Hello World";
     }
-    
-    function get() public view returns(string){
+
+    function get() public view returns (string memory) {
         return value;
     }
-    
-    function set(string _value) public{
-        value=_value;
-    } 
+
+    function set(string memory _value) public {
+        value = _value;
+    }
 }
