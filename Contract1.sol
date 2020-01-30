@@ -13,7 +13,11 @@ contract Contract1 {
     function addPerson(string memory _firstName, string memory _lastName)
         public
     {
-        peopleCount++;
+        incrementCount();
         people[peopleCount] = Person(peopleCount, _firstName, _lastName);
+    }
+
+    function incrementCount() internal {
+        peopleCount++;
     }
 }
