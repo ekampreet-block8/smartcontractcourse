@@ -14,5 +14,11 @@ contract ERC20Token {
 }
 
 contract MyToken is ERC20Token {
-    string public name = "My Token";
+    string public symbol;
+    constructor(string memory _name, string memory _symbol)
+        public
+        ERC20Token(_name)
+    {
+        symbol = _symbol;
+    }
 }
